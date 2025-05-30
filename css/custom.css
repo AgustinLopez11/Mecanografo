@@ -1,0 +1,27 @@
+.entrada{
+    border-radius: 0.5rem;
+    width: 40rem;
+    height:auto ;
+    
+}
+.escribir{
+    margin-top: 2rem;
+    background-color: antiquewhite;
+    width: 795px;
+    height: auto;
+    padding: 1rem;
+}
+
+.sobre{
+    z-index: 1;
+    margin-top: 2rem;
+    position: absolute;
+    width: 795px;
+    height: auto;
+    padding: 1rem;
+    display: flex;
+}
+.parafo{
+    width: 795px;
+    padding: 1rem;
+}
