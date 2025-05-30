@@ -1,6 +1,6 @@
 const entrada = document.querySelector('.entrada')
 const valor = document.querySelector('.escribir')
-const display = document.querySelector('.display')
+const dis = document.querySelector('.dis')
 entrada.addEventListener('keyup', () => {
     comprobacion(entrada.value)
 })
@@ -9,7 +9,7 @@ entrada.addEventListener('keyup', () => {
 
 const comprobacion = (valorentrada) => {
     let compt = valor.textContent
-    display.textContent = valorentrada
+    dis.textContent = valorentrada
     if (compt.startsWith(valorentrada)) {
         //display.classList.remove("bg-danger")
         //display.classList.add("bg-success")

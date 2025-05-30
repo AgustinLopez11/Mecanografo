@@ -6,7 +6,7 @@
 }
 .escribir{
     margin-top: 2rem;
-    background-color: antiquewhite;
+    background-color: transparent;
     width: 795px;
     height: auto;
     padding: 1rem;
@@ -17,9 +17,7 @@
     margin-top: 2rem;
     position: absolute;
     width: 795px;
-    height: auto;
     padding: 1rem;
-    display: flex;
 }
 .parafo{
     width: 795px;
