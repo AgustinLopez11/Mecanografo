@@ -2,24 +2,31 @@ const entrada = document.querySelector('.entrada');
 const valor = document.querySelector('.escribir');
 const display = document.querySelector('.dis');
 const esc = document.querySelector('.esc');
-const pensamiento2=document.querySelector('.pensamiento2')
-const pensamiento=document.querySelector('.pensamiento')
-const flash=document.querySelector('.flash')
-const errores=document.querySelector('.errores')
+const pensamiento2 = document.querySelector('.pensamiento2')
+const pensamiento = document.querySelector('.pensamiento')
+const flash = document.querySelector('.flash')
+const errores = document.querySelector('.errores')
 const sobre = document.querySelector('.sobre')
+const tiempo = document.querySelector('.tiempo')
 let oracion = "";
 let oracionLista = "";
 let palabra = "";
-let contador=0;
-entrada.disabled=true
+let contador = 0;
+entrada.disabled = true
+let inicio = ""
+let final = ""
+let cronometro;
 
-let motivaciones=[
+
+let motivaciones = [
     `Tu puedes`,
     `Al principio es difícil`,
     `No te desanimes`
 ]
 
 let oraciones = [
+    `Este es un test de prueba jaja.`,
+
     `Hoy es un lindo día para hacer amistades,
      aveces tenemos que guiarnos por nuestra
      experiencias pasadas.`,
@@ -57,8 +64,8 @@ let oraciones = [
          continuar aprendiendo y perfeccionando su técnica
         día tras día.`
 ]
-
 const empezar = () => {
+
     oracion = oraciones[Math.floor(Math.random() * 4)].trim() + " "
     for (let i = 0; i <= oracion.length; i++) {
         palabra += oracion.charAt(i)
@@ -70,42 +77,50 @@ const empezar = () => {
             palabra = ""
         }
     }
-    esc.style="display:none;"
+    esc.style = "display:none;"
     valor.textContent = oracionLista.trim()
-    oracionLista=""
-    entrada.value=""
-    display.textContent=""
-    entrada.disabled=false
-    flash.style="animation: rapido linear infinite 0.5s alternate;"
-    valor.style="display: block;"
-    sobre.style="display: block;"
+    oracionLista = ""
+    entrada.value = ""
+    display.textContent = ""
+    entrada.disabled = false
+    flash.style = "animation: rapido linear infinite 0.5s alternate;"
+    valor.style = "display: block;"
+    sobre.style = "display: block;"
 }
 
 entrada.addEventListener('keyup', () => {
+    console.log(cronometro)
     comprobacion(entrada.value)
 })
 
 const comprobacion = (valorentrada) => {
+
     let compt = valor.textContent
     display.textContent = valorentrada
     if (compt.startsWith(valorentrada)) {
-        pensamiento2.textContent="Genial!"
+        pensamiento2.textContent = "Genial!"
         display.classList.remove("bg-danger")
         display.classList.add("bg-success")
-        if (compt!="" && compt.length == String(valorentrada).length) {
+        if (compt != "" && compt.length == String(valorentrada).length) {
+            clearInterval(cronometro)
+            console.log("Si esta entrado pero no nos hace caso carnal")
+            //final = performance.now()
+            //tiempo.textContent = Math.floor(final - inicio) / 1000
             //Terminado mostrar errores y flujo de tiempo
         }
+
     }
     else {
         contador++
-        errores.textContent=contador
-        pensamiento.style="display:block;"
-        pensamiento2.textContent=motivaciones[Math.floor(Math.random()*3    )]
+        errores.textContent = contador
+        pensamiento.style = "display:block;"
+        pensamiento2.textContent = motivaciones[Math.floor(Math.random() * 3)]
         display.classList.remove("bg-success")
         display.classList.add("bg-danger")
     }
 }
 
-document.addEventListener('keyup',(event)=>{
-    event.key=="Escape" ? empezar() : ""
-} )
+document.addEventListener('keyup', (event) => {
+    event.key == "Escape" ? empezar() : ""
+})
+
