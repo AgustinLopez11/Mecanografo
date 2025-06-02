@@ -1,25 +1,92 @@
-.entrada{
+.entrada {
     border-radius: 0.5rem;
     width: 40rem;
-    height:auto ;
-    
-}
-.escribir{
-    margin-top: 2rem;
-    background-color: transparent;
-    width: 795px;
+    font-size: 1.4rem;
     height: auto;
-    padding: 1rem;
 }
 
-.sobre{
+.escribir {
+    margin-top: 2rem;
+    font-size: 2rem;
+    background-color: transparent;
+    width: 800px;
+    height: 400px;
+    padding: 1rem;
+    border: 1rem solid black;
+    display: none;
+}
+
+.sobre {
+    font-size: 2rem;
     z-index: 1;
     margin-top: 2rem;
     position: absolute;
-    width: 795px;
+    width: 800px;
+    height: 400px;
     padding: 1rem;
+    border: 1rem solid black;
+    display: none;
 }
-.parafo{
-    width: 795px;
+
+.esc {
+    position: relative;
+    margin-top: 4rem;
+    width: auto;
+    height: auto;
     padding: 1rem;
+    font-size: 2rem;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    background-color: bisque;
+}
+
+.esc::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: " ";
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+    animation: escal ease-in-out 1s alternate-reverse infinite;
+    border-radius: 1.5rem;
+}
+
+.pensamiento {
+    z-index: 1;
+    position: absolute;
+    width: 250px;
+    top: 0;
+    left: 15rem;
+    display: none;
+}
+
+.pensamiento2 {
+    z-index: 2;
+    padding-top: 1rem;
+    padding-right: 1.8rem;
+    position: absolute;
+    top: 2rem;
+    left: 20rem;
+}
+
+@keyframes rapido {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes escal {
+    100% {
+        scale: 1.2;
+    }
 }

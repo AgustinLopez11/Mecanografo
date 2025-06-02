@@ -10,26 +10,48 @@
 </head>
 
 <body>
-    <div class="d-flex justify-content-center w-100">
-        <p class="sobre"><span class="dis bg-danger">Hoy es un lindo día para hacer amistades, aveces tenemos que guiarnos por
-                nuestra experiencias pasadas Hola</span></p>
-    </div>
-    <div class="d-flex justify-content-center position-relative">
-        <p class="escribir">Hoy es un lindo día para hacer amistades, aveces tenemos que guiarnos por nuestra
-            experiencias pasadas Hola como estamos</p>
-    </div>
-    <div class="contenedor d-flex justify-content-center mt-5">
-        <div class="entradas w-auto mt-5">
-            <input class="entrada mt-5" placeholder="Empezar" type="text">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <div class=" position-relative">
+                    <div class="position-relative">
+                        <span class="pensamiento2 fs-5 text-center fw-bold "></span>
+                        <img class="pensamiento" src="./img/pensamiento.png" alt="">
+                    </div>
+                    <img class="mt-5 ms-5 flash" src="./img/flash.png" width="300px" alt="">
+                </div>
+            </div>
+
+
+            <div class="col-6">
+                <div class="d-flex justify-content-center w-100">
+                    <div class="esc">Presiones ESC para comenzar</div>
+                    <p class="sobre"><span class="dis"></span></p>
+                </div>
+                <div class="d-flex justify-content-center position-relative">
+                    <p class="escribir"></p>
+                </div>
+                <div class="contenedor d-flex justify-content-center mt-5">
+                    <div class="entradas w-auto mt-5">
+                        <input class="entrada mt-5" placeholder="Empezar" type="text">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-12">
+                        <p class=" mt-5 fs-2 fw-bold text-center">Errores: <br><span class="errores">0</span>
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     </div>
-
-    <div class="prueba d-flex justify-content-center w-100">
-        <p class="parafo bg-danger"><span class="bg-light">Hoy es un lindo día para hacer amistades, aveces tenemos que
-                guiarnos por nuestra experiencias pasadas Hola </span> </p>
-    </div>
-
-
     <script src="./index.js"></script>
     <script src="./js/bootstrap.bundle.js"></script>
 </body>
