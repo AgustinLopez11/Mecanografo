@@ -13,10 +13,10 @@ let oracionLista = "";
 let palabra = "";
 let contador = 0;
 entrada.disabled = true
-let inicio = ""
-let final = ""
 let cronometro;
-
+let segundos = 0;
+let minutos = 0;
+let isentrar = false
 
 let motivaciones = [
     `Tu puedes`,
@@ -25,7 +25,7 @@ let motivaciones = [
 ]
 
 let oraciones = [
-    `Este es un test de prueba jaja.`,
+    `Empezemos con algo pequeño.`,
 
     `Hoy es un lindo día para hacer amistades,
      aveces tenemos que guiarnos por nuestra
@@ -86,27 +86,45 @@ const empezar = () => {
     flash.style = "animation: rapido linear infinite 0.5s alternate;"
     valor.style = "display: block;"
     sobre.style = "display: block;"
+    errores.textContent = 0;
+    contador = 0
+    tiempo.textContent = 0
+    isentrar = true
+    clearInterval(cronometro)
 }
 
 entrada.addEventListener('keyup', () => {
-    console.log(cronometro)
     comprobacion(entrada.value)
 })
 
 const comprobacion = (valorentrada) => {
+    if (display.textContent.length == 0) {
+        cronometro = setInterval(() => {
+            tiempo.textContent = `00:${minutos}:${segundos++}`
+            if (segundos == 60) {
+                segundos = 0
+                minutos++
 
+            }
+
+        }, 100)
+    }
     let compt = valor.textContent
     display.textContent = valorentrada
     if (compt.startsWith(valorentrada)) {
         pensamiento2.textContent = "Genial!"
-        display.classList.remove("bg-danger")
-        display.classList.add("bg-success")
-        if (compt != "" && compt.length == String(valorentrada).length) {
-            clearInterval(cronometro)
-            console.log("Si esta entrado pero no nos hace caso carnal")
-            //final = performance.now()
-            //tiempo.textContent = Math.floor(final - inicio) / 1000
-            //Terminado mostrar errores y flujo de tiempo
+        display.classList.remove("colorrojo")
+        display.classList.add("colorverde")
+        if (display.textContent != "" && compt != "" && compt.length == String(valorentrada).length) {
+            if (isentrar) {
+                clearInterval(cronometro)
+                setTimeout(() => {
+                    alert("Felicidades has terminado una lección!!")
+                }, 200)
+                isentrar = false
+                segundos = 0
+                minutos = 0
+            }
         }
 
     }
@@ -115,8 +133,8 @@ const comprobacion = (valorentrada) => {
         errores.textContent = contador
         pensamiento.style = "display:block;"
         pensamiento2.textContent = motivaciones[Math.floor(Math.random() * 3)]
-        display.classList.remove("bg-success")
-        display.classList.add("bg-danger")
+        display.classList.remove("colorverde")
+        display.classList.add("colorrojo")
     }
 }
 
