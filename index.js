@@ -16,6 +16,7 @@ entrada.disabled = true
 let cronometro;
 let segundos = 0;
 let minutos = 0;
+let hora = 0;
 let isentrar = false
 
 let motivaciones = [
@@ -91,6 +92,9 @@ const empezar = () => {
     tiempo.textContent = 0
     isentrar = true
     clearInterval(cronometro)
+    minutos = 0
+    segundos = 0
+    hora = 0
 }
 
 entrada.addEventListener('keyup', () => {
@@ -100,14 +104,18 @@ entrada.addEventListener('keyup', () => {
 const comprobacion = (valorentrada) => {
     if (display.textContent.length == 0) {
         cronometro = setInterval(() => {
-            tiempo.textContent = `00:${minutos}:${segundos++}`
+            tiempo.textContent = `${hora.length < 10 ? "0" + hora : hora}:${minutos < 10 ? "0" + minutos : minutos}:${segundos < 10 ? "0" + segundos : segundos}s`
+            segundos++
             if (segundos == 60) {
                 segundos = 0
                 minutos++
-
+            }
+            if (minutos == 60) {
+                minutos = 0
+                hora++
             }
 
-        }, 100)
+        }, 10)
     }
     let compt = valor.textContent
     display.textContent = valorentrada
